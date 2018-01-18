@@ -10,6 +10,7 @@ public class ShipMain : MonoBehaviour {
     private float injuredtimer = 0.0f;
     private float injuredcountdown = 1.0f;
 
+
 	// Use this for initialization
 	void Start ()
     {

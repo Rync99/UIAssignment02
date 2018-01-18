@@ -8,8 +8,7 @@ public class PlayerFire : MonoBehaviour {
     GameObject bullet;
 	// Use this for initialization
 	void Start () {
-		
-	}
+    }
 	
     public void BtnAFire()
     {
