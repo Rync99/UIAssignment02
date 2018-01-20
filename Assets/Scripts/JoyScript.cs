@@ -40,7 +40,7 @@ public class JoyScript : MonoBehaviour {
 
 #elif UNITY_ANDROID
         Touch mytouch = Input.GetTouch(0);
-        Vector3 newPosition = new Vector3(mytouch.position.x - startPosition.x, mytouch.position.y - startPosition.y, 1);
+        Vector3 tempPos = new Vector3(mytouch.position.x - startPosition.x, mytouch.position.y - startPosition.y, 1);
 
 #endif
         // joyFG.rectTransform.localPosition = newPosition;
