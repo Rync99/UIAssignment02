@@ -8,8 +8,6 @@ public class UpgradeManager : MonoBehaviour {
 
     public List<Upgrade> m_upgradeList = new List<Upgrade>();
 
-    public GameObject itemHolderPrefab;
-
     // Use this for initialization
     void Start () {
         upgrademanager = this;
