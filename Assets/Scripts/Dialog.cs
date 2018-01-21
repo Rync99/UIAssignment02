@@ -3,40 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialog : MonoBehaviour {
+[System.Serializable]
+public class Dialog  {
 
     [SerializeField]
     public GameObject dialogBox;
 
-  
-    public void OpenDialog()
-    {
-        dialogBox.SetActive(true);
-  
-        //Disable all upgradable buttons
-        GameObject[] objs;
-        objs = GameObject.FindGameObjectsWithTag("Dialog");
+    //dialogBoxID is the same as UpgradeID
+    [SerializeField]
+    public int dialogBoxID;
 
-        foreach (GameObject button in objs)
-        {
-            button.GetComponent<Button>().interactable = false;
-        }
+    [SerializeField]
+    public Text modifiedText;
 
-    }
-
-    public void CloseDailog()
-    {
-        dialogBox.SetActive(false);
-
-        //Disable all upgradable buttons
-        GameObject[] objs;
-        objs = GameObject.FindGameObjectsWithTag("Dialog");
-
-        foreach (GameObject button in objs)
-        {
-            button.GetComponent<Button>().interactable = true;
-        }
-    }
-
+    public bool b_isPurchaseSuccess = false;
 
 }

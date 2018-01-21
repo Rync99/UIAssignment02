@@ -8,7 +8,6 @@ public class BuyUpgrade : MonoBehaviour
     public int ID;
     public Image TargetImage;
     public Sprite changeSprite;
-    public Text OutPutText;
 
     [SerializeField]
     public GameObject theYesObj;
@@ -62,6 +61,7 @@ public class BuyUpgrade : MonoBehaviour
         {
             if (UpgradeManager.upgrademanager.m_upgradeList[i].upgradeID == ID)
             {
+               
                 int priceOfUpgrade = UpgradeManager.upgrademanager.m_upgradeList[i].upgradePrice;
 
                 //Have enough currency to buy the upgrade and the upgrade has not been bought
@@ -71,19 +71,30 @@ public class BuyUpgrade : MonoBehaviour
                     CurrencyManager.m_currencymanager.AddCurrency(-priceOfUpgrade);
                     UpgradeManager.upgrademanager.m_upgradeList[i].isBought = true;
                     TargetImage.sprite = changeSprite;
-                    OutPutText.text = "Purchase Successfully!";
+   
+                    DialogManager.m_dialogManager.ModifiyText(i, "Purchase Successfully!");
+                    DialogManager.m_dialogManager.m_dialogList[i].b_isPurchaseSuccess = true;
 
                     //GameObject.FindGameObjectWithTag("CloseDialogButton").SetActive(true);
                     //GameObject.FindGameObjectWithTag("YesDialogButton").SetActive(false);
                     //GameObject.FindGameObjectWithTag("NoDialogButton").SetActive(false);
 
+                    //don't render the yes and no button
                     theYesObj.SetActive(false);
                     theNoObj.SetActive(false);
+                    //render the close button
                     theCloseObj.SetActive(true);
+                    break;
                 }
                 else if (CurrencyManager.m_currencymanager.RequestCurrency(priceOfUpgrade) == false)
                 {
-                    OutPutText.text = "You do not have enough coins";
+                    DialogManager.m_dialogManager.ModifiyText(i, "You do not have enough coins!");
+                    theYesObj.SetActive(false);
+                    theNoObj.SetActive(false);
+                    //render the close button
+                    theCloseObj.SetActive(true);
+                    break;
+             
                 }
             }
 

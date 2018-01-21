@@ -49,4 +49,9 @@ public class CurrencyManager : MonoBehaviour
     {
         currencyText.text = "Currency: " + m_currency.ToString() + " Coins";
     }
+
+    public int GetCurrency()
+    {
+        return m_currency;
+    }
 }
