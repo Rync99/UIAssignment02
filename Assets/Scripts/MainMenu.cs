@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
 
         Camera mainCam = GameObject.FindWithTag("UICamera").GetComponent<Camera>();
 
-        Debug.Log(mainCam.WorldToScreenPoint(ship.transform.position).x);
+       // Debug.Log(mainCam.WorldToScreenPoint(ship.transform.position).x);
 
         if (mainCam.WorldToScreenPoint(ship.transform.position).x <= -50)
         {
