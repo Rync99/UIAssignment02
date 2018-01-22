@@ -9,10 +9,10 @@ public class DetectHover : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject theObject;
+    GameObject theObject = null;
 
     [SerializeField]
-    GameObject thePlane;
+    GameObject thePlane = null;
 
     public enum STAT_TYPE
     {
@@ -24,15 +24,18 @@ public class DetectHover : MonoBehaviour
     }
 
     [SerializeField]
-    STAT_TYPE typeState;
+    STAT_TYPE typeState = STAT_TYPE.WEAPON_STAT;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //Set the GameObject's active = true to render
         theObject.SetActive(true);
         thePlane.SetActive(false);
         Debug.Log("hello");
 
 
+        //E.g if mouse is hover the weapon button, only show the damage stats
+        // while other stats == zero
         switch (typeState)
         {
             case STAT_TYPE.WEAPON_STAT:
@@ -58,10 +61,12 @@ public class DetectHover : MonoBehaviour
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        //  //Set the GameObject's active = false to NOT render
         theObject.SetActive(false);
         thePlane.SetActive(true);
         Debug.Log("Bye");
 
+        //Restore the default stats(the ship stats) when the mouse is not hovered over it
         StatsSystem.m_stateSystem.UnSetStats();
     }
 }

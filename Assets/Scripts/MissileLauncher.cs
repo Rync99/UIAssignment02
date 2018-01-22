@@ -5,21 +5,14 @@ using UnityEngine;
 public class MissileLauncher : MonoBehaviour {
 
     [SerializeField]
-    GameObject missile;
-    bool K_pressed = false;
+    GameObject missile = null;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+ 
+    public void LaunchMissile()
     {
-		if(Input.GetKeyDown(KeyCode.W))
-        {
-           GameObject go = Instantiate(missile, transform.position, transform.rotation);
-            go.GetComponent<Rigidbody>().AddForce(go.transform.forward * 1000);
-        }
-	}
+        GameObject go = Instantiate(missile, transform.position, transform.rotation);
+        go.GetComponent<Rigidbody>().AddForce(go.transform.forward * 1000);
+    }
+	
+	
 }

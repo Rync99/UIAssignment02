@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField]
-    float movementSpeed = 10.0f;
+ 
 	// Use this for initialization
 	void Start ()
     {

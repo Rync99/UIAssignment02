@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject PauseMenu;
+    GameObject PauseMenu = null;
     [SerializeField]
-    Button Pausebutton;
+    Button Pausebutton = null;
     // Use this for initialization
     void Start()
     {

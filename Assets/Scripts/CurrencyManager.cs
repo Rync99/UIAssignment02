@@ -10,14 +10,12 @@ public class CurrencyManager : MonoBehaviour
     private int m_currency;
 
     public static CurrencyManager m_currencymanager;
-    private bool b_isCanBuy;
     public Text currencyText;
 
     // Use this for initialization
     void Start()
     {
         m_currencymanager = this;
-        b_isCanBuy = true;
         UpdateUI();
     }
 
@@ -47,9 +45,11 @@ public class CurrencyManager : MonoBehaviour
 
     void UpdateUI()
     {
+        //Output and Update currency
         currencyText.text = "Currency: " + m_currency.ToString() + " Coins";
     }
 
+    //Return the currency
     public int GetCurrency()
     {
         return m_currency;

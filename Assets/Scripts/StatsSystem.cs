@@ -34,6 +34,7 @@ public class StatsSystem : MonoBehaviour
     {
         m_stateSystem = this;
 
+        //The intial state of the ship
         sliderArray[0].value = CaculateHealth();
         sliderArray[1].value = CaculateSpeed();
         sliderArray[2].value = CaculateEngine();
@@ -41,7 +42,9 @@ public class StatsSystem : MonoBehaviour
         sliderArray[4].value = CaculateDamage();
     }
 
+    //Unfortunately C# doesn't have template !!!!!
 
+    //--------------Health--------------------//
     float CaculateHealth()
     {
         return health / maxhealth;
@@ -73,7 +76,7 @@ public class StatsSystem : MonoBehaviour
     }
 
 
-    //----------------------------------------------
+    //-------------------Speed---------------------------//
 
     float CaculateSpeed()
     {
@@ -95,7 +98,7 @@ public class StatsSystem : MonoBehaviour
         sliderArray[4].value = 0;
     }
 
-    //----------------------------------------------
+    //------------------Engine----------------------------//
 
     float CaculateEngine()
     {
@@ -118,7 +121,7 @@ public class StatsSystem : MonoBehaviour
     }
 
 
-    //----------------------------------------------
+    //-------------------Fuel---------------------------//
 
     float CaculateFuel()
     {
@@ -142,7 +145,7 @@ public class StatsSystem : MonoBehaviour
 
 
 
-    //----------------------------------------------
+    //-------------------Damage---------------------------//
 
     float CaculateDamage()
     {

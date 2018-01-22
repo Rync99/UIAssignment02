@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour {
     {
         m_dialogManager = this;
 
+        //Output text
         m_dialogList[0].modifiedText.text = "Do you want to purchase the upgrade? Upgrade Cost: "
             + UpgradeManager.upgrademanager.m_upgradeList[0].upgradePrice;
 
@@ -38,6 +39,7 @@ public class DialogManager : MonoBehaviour {
     //E.g index = 0 , open the weapon upgrade dialog box
     public void OpenDialog(int index)
     {
+        //Enable dialogbox
         m_dialogList[index].dialogBox.SetActive(true);
 
         //Disable all upgradable buttons
@@ -58,9 +60,10 @@ public class DialogManager : MonoBehaviour {
 
     public void CloseDialog(int index)
     {
+        //Disable dialogbox
         m_dialogList[index].dialogBox.SetActive(false);
 
-        //Disable all upgradable buttons
+        //Enable all upgradable buttons
         GameObject[] objs;
         objs = GameObject.FindGameObjectsWithTag("Dialog");
 

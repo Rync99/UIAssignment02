@@ -6,7 +6,7 @@ public class BulletMovement : MonoBehaviour {
 
     float movementSpeed = 10;
     [SerializeField]
-    ParticleSystem explosion;
+    ParticleSystem explosion = null;
     // Use this for initialization
     void Start ()
     {

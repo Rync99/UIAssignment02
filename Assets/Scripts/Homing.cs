@@ -5,7 +5,7 @@ using UnityEngine;
 public class Homing : MonoBehaviour {
 
     [SerializeField]
-    GameObject missileModel;
+    GameObject missileModel = null;
 
     [SerializeField]
     Rigidbody homingMissile;

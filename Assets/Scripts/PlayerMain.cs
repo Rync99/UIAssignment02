@@ -11,7 +11,7 @@ public class PlayerMain : MonoBehaviour
     float rotateSpeed = 60;
 
     [SerializeField]
-    GameObject UIObj;
+    GameObject UIObj = null;
 
     JoyScript targetScript;
 
