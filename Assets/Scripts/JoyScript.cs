@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class JoyScript : MonoBehaviour {
 
     [SerializeField]
-    GameObject joyObj;
+    GameObject joyObj = null;
 
-    [SerializeField]
-    Camera UICamera;
 
     Image joyBG;
     Image joyFG;
@@ -43,11 +41,10 @@ public class JoyScript : MonoBehaviour {
         Vector3 tempPos = new Vector3(mytouch.position.x - startPosition.x, mytouch.position.y - startPosition.y, 1);
 
 #endif
-        // joyFG.rectTransform.localPosition = newPosition;
-        //  direction = joyFG.rectTransform.localPosition;
+  
         isStopDragging = false;
-        Vector2 tempPos = new Vector2(Input.mousePosition.x - startPosition.x, Input.mousePosition.y - startPosition.y);
-        Vector2 clampPos = Vector2.ClampMagnitude(tempPos, 50);
+        Vector2 temporaryPosition = new Vector2(Input.mousePosition.x - startPosition.x, Input.mousePosition.y - startPosition.y);
+        Vector2 clampPos = Vector2.ClampMagnitude(temporaryPosition, 50);
         Vector3 newPos = new Vector3(clampPos.x, clampPos.y, 1);
         joyFG.rectTransform.localPosition = newPos;
         direction = joyFG.rectTransform.localPosition;

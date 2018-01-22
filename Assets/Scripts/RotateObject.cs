@@ -14,7 +14,7 @@ public class RotateObject : MonoBehaviour
     }
 
     [SerializeField]
-    RotateDir dirRotate;
+    RotateDir dirRotate = RotateDir.X_DIR_ROTATE;
 
     void Start()
     {

@@ -10,12 +10,18 @@ public class BuyUpgrade : MonoBehaviour
     public Sprite changeSprite;
 
     [SerializeField]
-    public GameObject theYesObj;
+    public GameObject theYesObj = null;
     [SerializeField]
-    public GameObject theNoObj;
+    public GameObject theNoObj = null;
 
     [SerializeField]
-    public GameObject theCloseObj;
+    public GameObject theCloseObj = null;
+
+    [SerializeField]
+    GameObject[] changedObjects = null;
+
+    [SerializeField]
+    Material myNewMaterial = null;
 
     public enum ImageType
     {
@@ -31,7 +37,8 @@ public class BuyUpgrade : MonoBehaviour
 
     public void Start()
     {
-  
+
+        //Set the image accordingly to the correct tag name
         switch (imageType)
         {
             case ImageType.WEAPON_IMAGE:
@@ -61,7 +68,7 @@ public class BuyUpgrade : MonoBehaviour
         {
             if (UpgradeManager.upgrademanager.m_upgradeList[i].upgradeID == ID)
             {
-               
+
                 int priceOfUpgrade = UpgradeManager.upgrademanager.m_upgradeList[i].upgradePrice;
 
                 //Have enough currency to buy the upgrade and the upgrade has not been bought
@@ -71,13 +78,41 @@ public class BuyUpgrade : MonoBehaviour
                     CurrencyManager.m_currencymanager.AddCurrency(-priceOfUpgrade);
                     UpgradeManager.upgrademanager.m_upgradeList[i].isBought = true;
                     TargetImage.sprite = changeSprite;
-   
+
                     DialogManager.m_dialogManager.ModifiyText(i, "Purchase Successfully!");
                     DialogManager.m_dialogManager.m_dialogList[i].b_isPurchaseSuccess = true;
 
                     //GameObject.FindGameObjectWithTag("CloseDialogButton").SetActive(true);
                     //GameObject.FindGameObjectWithTag("YesDialogButton").SetActive(false);
                     //GameObject.FindGameObjectWithTag("NoDialogButton").SetActive(false);
+
+                    switch (i)
+                    {
+                        case 0:
+                            StatsSystem.m_stateSystem.IncreaseDamage(20);
+                            break;
+                        case 1:
+                            StatsSystem.m_stateSystem.IncreaseEngine(30);
+                            break;
+                        case 2:
+                            StatsSystem.m_stateSystem.IncreaseSpeed(40);
+                            break;
+                        case 3:
+                            StatsSystem.m_stateSystem.IncreaseFuel(10);
+                            break;
+                        case 4:
+                            StatsSystem.m_stateSystem.IncreaseDamage(10);
+                            break;
+
+                    }
+
+                    //Change the material
+                    for (int j = 0; j < changedObjects.Length; j++)
+                    {
+                        if (changedObjects[j].GetComponent<Renderer>().material != null)
+                        changedObjects[j].GetComponent<Renderer>().material = myNewMaterial;
+
+                    }
 
                     //don't render the yes and no button
                     theYesObj.SetActive(false);
@@ -94,7 +129,7 @@ public class BuyUpgrade : MonoBehaviour
                     //render the close button
                     theCloseObj.SetActive(true);
                     break;
-             
+
                 }
             }
 

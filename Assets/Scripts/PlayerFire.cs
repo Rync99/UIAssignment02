@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour {
 
     [SerializeField]
-    GameObject bullet;
+    GameObject bullet = null;
 	// Use this for initialization
 	void Start () {
     }
@@ -14,6 +14,9 @@ public class PlayerFire : MonoBehaviour {
     {
         Instantiate(bullet, transform.position, transform.rotation);
     }
+
+   
+
 	// Update is called once per frame
 	void Update () {
         // When mouse button is pressed

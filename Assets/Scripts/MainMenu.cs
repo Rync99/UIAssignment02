@@ -7,9 +7,8 @@ public class MainMenu : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject ship;
-    [SerializeField]
-    GameObject canvas;
+    GameObject ship = null;
+ 
 
     Vector3 ship_position;
     public void PlayGame()
@@ -22,6 +21,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
+    public void GoSettings()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+
+ 
     public void QuitGame()
     {
         Debug.Log("Quit");
@@ -40,6 +45,9 @@ public class MainMenu : MonoBehaviour
 
     public void Update()
     {
+        if (ship == null)
+            return;
+
 
         Camera mainCam = GameObject.FindWithTag("UICamera").GetComponent<Camera>();
 

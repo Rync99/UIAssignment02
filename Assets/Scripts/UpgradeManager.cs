@@ -13,10 +13,5 @@ public class UpgradeManager : MonoBehaviour {
         upgrademanager = this;
 
     }
-	
-    void FillList()
-    {
 
-
-    }
 }

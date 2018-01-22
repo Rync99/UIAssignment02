@@ -6,7 +6,7 @@ public class EnemySpawn : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject enemy;
+    GameObject enemy = null;
     // Use this for initialization
     void Start()
     {

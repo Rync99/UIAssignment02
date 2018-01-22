@@ -5,11 +5,9 @@ using UnityEngine;
 public class ShipControl : MonoBehaviour
 {
 
-    [SerializeField]
-    GameObject theShip;
 
     [SerializeField]
-    GameObject UIObj;
+    GameObject UIObj = null;
 
     public Transform theCamera;
 
@@ -39,7 +37,7 @@ public class ShipControl : MonoBehaviour
             //Debug.Log(targetDir);
 
             //Move foward
-            if (targetDir.y > 0 )
+            if (targetDir.y > 0)
             {
                 GetComponent<Rigidbody>().AddForce(transform.forward * moveSpeed * Time.deltaTime);
             }
