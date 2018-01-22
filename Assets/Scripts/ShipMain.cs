@@ -29,7 +29,7 @@ public class ShipMain : MonoBehaviour {
                 injured = false;
             }
         }
-        Debug.Log(healthscript.GetHealthPoints());
+        //Debug.Log(healthscript.GetHealthPoints());
     }
 
 
