@@ -11,21 +11,6 @@ public class MainMenu : MonoBehaviour
  
 
     Vector3 ship_position;
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void GoShop()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-    }
-
-    public void GoSettings()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-    }
-
  
     public void QuitGame()
     {

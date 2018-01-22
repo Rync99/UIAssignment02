@@ -35,7 +35,7 @@ public class PauseManager : MonoBehaviour
     }
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
         Resume();
     }
     public void Quit()
