@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipMain : MonoBehaviour {
 
@@ -10,12 +11,18 @@ public class ShipMain : MonoBehaviour {
     private float injuredtimer = 0.0f;
     private float injuredcountdown = 1.0f;
 
+    public Slider healthSlider;
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
         healthscript = GetComponent<Health>();
-	}
+        healthSlider.value = healthscript.CaculateHeathOnSlider();
+
+    }
+
+    
 	
 	// Update is called once per frame
 	void Update ()
@@ -37,7 +44,8 @@ public class ShipMain : MonoBehaviour {
     {
         if (!injured)
         {//when player collides with enemy
-            healthscript.AddHealth(-10);//reduce health
+            healthscript.AddHealth(-30);//reduce health
+            healthSlider.value = healthscript.CaculateHeathOnSlider();
             injured = true;
         }
     }

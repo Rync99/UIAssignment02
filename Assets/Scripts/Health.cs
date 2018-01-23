@@ -7,9 +7,13 @@ public class Health : MonoBehaviour
     float healthPoints = 100.0f;
     bool P_keypressed = false;
     bool b_smoking = false;
+    float defaultHealthPoints;
+
+
     // Uber cool this for initialization
     void Start()
     {
+        defaultHealthPoints = healthPoints;
     }
 
     // Update is called once per frame
@@ -37,6 +41,13 @@ public class Health : MonoBehaviour
         healthPoints += amt;
         //more than maxhealth, equals max health
     }
+
+
+    public float CaculateHeathOnSlider()
+    {
+        return healthPoints / defaultHealthPoints;
+    }
+
     public float GetHealthPoints()
     {
         return healthPoints;

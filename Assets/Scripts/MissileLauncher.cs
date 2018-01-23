@@ -13,6 +13,5 @@ public class MissileLauncher : MonoBehaviour {
         GameObject go = Instantiate(missile, transform.position, transform.rotation);
         go.GetComponent<Rigidbody>().AddForce(go.transform.forward * 1000);
     }
-	
-	
+
 }
